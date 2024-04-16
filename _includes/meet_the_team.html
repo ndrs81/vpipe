@@ -1,35 +1,35 @@
 <section id="meet-the-team">
-    <h2>Meet the <span>V-pipe team</span></h2>
-    <div class="container">
-        <div class="column">
-            <h3><span>Upcoming</span> Events</h3>
-            <ul>
-                {% for event in site.data.events %}
-                    {% assign event_date = event.date | date: "%Y-%m-%d" %}
-                    {% assign now = "now" | date: "%Y-%m-%d" %}
-                    {% if event_date > now %}
-                        <li>
-                            <span class="date">{{ event.date | date: "%b %d, %Y" }}</span>
-                            <span class="location">{{ event.location }}</span>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="column">
-            <h3><span>Past</span> Events</h3>
-            <ul>
-                {% for event in site.data.events %}
-                    {% assign event_date = event.date | date: "%Y-%m-%d" %}
-                    {% assign now = "now" | date: "%Y-%m-%d" %}
-                    {% if event_date <= now %}
-                        <li>
-                            <span class="date">{{ event.date | date: "%b %d, %Y" }}</span>
-                            <span class="location">{{ event.location }}</span>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+  <h2>Meet the <span>V-pipe team</span></h2>
+  <div class="container">
+      <div class="column">
+          <h3><span>Upcoming</span> Events</h3>
+          <ul>
+              {% for event in site.data.events %}
+                  {% assign event_date = event.date | date: "%s" | plus: 0 %}
+                  {% assign now = "now" | date: "%s" | plus: 0 %}
+                  {% if event_date > now %}
+                      <li>
+                          <span class="date">{{ event.date | date: "%b %d, %Y" }}</span>
+                          <span class="location">{{ event.location }}</span>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+      </div>
+      <div class="column">
+          <h3><span>Past</span> Events</h3>
+          <ul>
+              {% for event in site.data.events %}
+                  {% assign event_date = event.date | date: "%s" | plus: 0 %}
+                  {% assign now = "now" | date: "%s" | plus: 0 %}
+                  {% if event_date <= now %}
+                      <li>
+                          <span class="date">{{ event.date | date: "%b %d, %Y" }}</span>
+                          <span class="location">{{ event.location }}</span>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
 </section>
